@@ -1,16 +1,22 @@
-let tarefas = [];
+type Tarefa = {
+    titulo: string;
+    descricao: string;
+    id: string;
+}
+
+let tarefas: Tarefa[] = [];
 
 export const getTarefas = () => tarefas;
 
-export function adicionarTarefa(tarefa) {
+export function adicionarTarefa(tarefa: Tarefa) {
     tarefas.push(tarefa)
 }
 
-export function excluirTarefa(id) {
+export function excluirTarefa(id: string) {
     tarefas = tarefas.filter((tarefa) => tarefa.id !== id);
 }
 
-export function atualizarTarefa(id, titulo, descricao) {
+export function atualizarTarefa(id: string, titulo: string, descricao: string) {
     const tarefa = tarefas.find((tarefa) => tarefa.id === id)
 
     if (tarefa) {
@@ -21,6 +27,6 @@ export function atualizarTarefa(id, titulo, descricao) {
     }
 }
 
-export function getPorId(id) {
+export function getPorId(id: string) {
     return tarefas.find((tarefa) => tarefa.id === id)
 }
