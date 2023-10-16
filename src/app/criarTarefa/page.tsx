@@ -1,7 +1,7 @@
 'use client'
 
 import Link from "next/link";
-import React, { useState } from "react"
+import { FormEventHandler, useState } from "react"
 import { useRouter } from "next/navigation";
 
 export default function CriarTarefa() {
@@ -10,7 +10,7 @@ export default function CriarTarefa() {
 
     const router = useRouter();
 
-    async function handleSubmit(e) {
+    const handleSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
         e.preventDefault();
 
         if (!titulo || !descricao) {

@@ -17,10 +17,10 @@ async function obterTarefaPorId(id: string) {
     }
 }
 
-export default async function EditarTarefa({ params }) {
-    const { id } = params;
+export default async function EditarTarefa(id: string, titulo: string, descricao: string) {
     const tarefa = await obterTarefaPorId(id);
-    const { titulo, descricao } = tarefa;
+    titulo = tarefa;
+    descricao = tarefa;
 
     return (
         <>
