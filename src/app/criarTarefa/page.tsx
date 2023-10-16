@@ -1,17 +1,48 @@
 'use client'
 
 import Link from "next/link";
-import { useState } from "react"
+import React, { useState } from "react"
+import { useRouter } from "next/navigation";
 
 export default function CriarTarefa() {
     const [titulo, setTitulo] = useState<string>("");
     const [descricao, setDescricao] = useState<string>("");
 
+    const router = useRouter();
+
+    async function handleSubmit(e) {
+        e.preventDefault();
+
+        if (!titulo || !descricao) {
+            alert("O nome da tarefa e a descrição devem serem preenchidos");
+            return;
+        }
+
+        try {
+            const res = await fetch("http://localhost:3000/api/tarefas", {
+                method: "POST",
+                headers: {
+                    "Content-type": "application/json"
+                },
+                body: JSON.stringify({ titulo, descricao }),
+            });
+
+            if (res.ok) {
+                router.refresh();
+                router.push("/");
+            } else {
+                throw new Error("Ocorreu um erro ao criar uma nova tarefa")
+            }
+        } catch (error) {
+            throw new Error(error)
+        }
+    }
+
     return (
         <section className="flex flex-col items-center min-h-screen">
             <Link className="flex bg-blue-600 hover:bg-blue-700 transition-all duration-300 p-3 text-white font-semibold text-center rounded-md flex-col justify-center w-11/12 md:w-9/12 sm:w-3/5 mt-4" href={"/"}>Retornar a página principal</Link>
             <h1 className="text-center font-bold text-2xl pt-4">Cria uma nova Tarefa</h1>
-            <form className="flex flex-col justify-center w-11/12 md:w-9/12 sm:w-3/5 mt-4" action="post">
+            <form onSubmit={handleSubmit} className="flex flex-col justify-center w-11/12 md:w-9/12 sm:w-3/5 mt-4" action="post">
                 <label className="text-lg mt-2" htmlFor="titulo">Nome da tarefa</label>
                 <input
                     className="border-2 border-gray-950 p-2 rounded-md mt-2"
@@ -32,10 +63,7 @@ export default function CriarTarefa() {
                     value={descricao}
                     onChange={(e) => setDescricao(e.target.value)}
                 />
-                <div className="flex flex-rowrap gap-4">
-                    <button className="bg-red-600 hover:bg-red-700 transition-all duration-300 px-4 py-2 rounded-md text-white font-semibold mt-6 w-1/2" type="reset">Limpar</button>
-                    <button className="bg-green-600 hover:bg-green-700 transition-all duration-300 px-4 py-2 rounded-md text-white font-semibold mt-6 w-1/2" type="submit">Criar Tarefa</button>
-                </div>
+                <button className="bg-green-600 hover:bg-green-700 transition-all duration-300 px-4 py-2 rounded-md text-white font-semibold mt-6" type="submit">Criar Tarefa</button>
             </form>
         </section>
     )

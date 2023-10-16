@@ -1,10 +1,10 @@
-import { AiFillEye, AiFillEdit } from 'react-icons/ai'
-import { BtnExcluir } from './BtnExcluir'
+import { AiFillEdit } from 'react-icons/ai'
 import Link from 'next/link';
+import { BtnExcluir } from './BtnExcluir';
 
 async function obterTarefas() {
     try {
-        const request = await fetch(`http:localhost:3000/api/tarefas`, { cache: 'no-store' });
+        const request = await fetch(`http://localhost:3000/api/tarefas`, { cache: 'no-store' });
 
         if (!request.ok) {
             throw new Error("Falha ao encontrar as tarefas")
@@ -26,13 +26,13 @@ export default async function ToDoList() {
                     <div className="border-2 flex justify-between shadow-md shadow-gray-400 w-11/12 md:w-9/12 sm:w-3/5 px-6 py-3 rounded-2xl border-gray-500">
                         <div>
                             <h1 className="font-bold text-lg md:text-xl sm:text-2xl">{tarefa.titulo}</h1>
+                            <div>{tarefa.descricao}</div>
                         </div>
                         <div className='flex gap-1 sm:gap-3 items-center'>
-                            <AiFillEye className='text-green-700' size={26} />
                             <Link href={`/editarTarefa/${tarefa.id}`}>
                                 <AiFillEdit className='text-blue-700' size={26} />
                             </Link>
-                            <BtnExcluir />
+                            <BtnExcluir id={tarefa.id} />
                         </div>
                     </div>
                 </div>
