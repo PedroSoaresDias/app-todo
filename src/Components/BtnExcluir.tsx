@@ -7,7 +7,7 @@ export function BtnExcluir({ id }: { id: string }) {
     const router = useRouter();
     
     async function ExcluirTarefa() {
-        const confirmar = confirm("Tem certeza que você quer excluir");
+        const confirmar = confirm("Tem certeza que você quer excluir essa tarefa?");
 
         if (confirmar) {
             const request = await fetch(`http://localhost:3000/api/tarefas/${id}`, {
@@ -18,8 +18,6 @@ export function BtnExcluir({ id }: { id: string }) {
                 router.refresh();
             }
         }
-
-
     }
 
     return (

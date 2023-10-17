@@ -1,14 +1,20 @@
 'use client'
 
-import { useState } from "react";
+import { FormEventHandler, useState } from "react";
 import { useRouter } from "next/navigation";
 
-export default function FormEditarTarefa({id, titulo, descricao}) {
+interface AtualizarTarefa {
+    id: string;
+    titulo: string;
+    descricao: string;
+}
+
+export default function FormEditarTarefa({id, titulo, descricao}: AtualizarTarefa) {
     const [novoTitulo, setNovoTitulo] = useState<string>(titulo);
     const [novaDescricao, setNovaDescricao] = useState<string>(descricao);
     const router = useRouter();
 
-    async function handleSubmit(e) {
+    const handleSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
         e.preventDefault();
 
         try {
