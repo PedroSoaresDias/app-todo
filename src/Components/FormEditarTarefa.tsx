@@ -3,15 +3,9 @@
 import { FormEventHandler, useState } from "react";
 import { useRouter } from "next/navigation";
 
-interface AtualizarTarefa {
-    id: string;
-    titulo: string;
-    descricao: string;
-}
-
-export default function FormEditarTarefa({id, titulo, descricao}: AtualizarTarefa) {
-    const [novoTitulo, setNovoTitulo] = useState<string>(titulo);
-    const [novaDescricao, setNovaDescricao] = useState<string>(descricao);
+export default function FormEditarTarefa({id, titulo, descricao}) {
+    const [novoTitulo, setNovoTitulo] = useState(titulo);
+    const [novaDescricao, setNovaDescricao] = useState(descricao);
     const router = useRouter();
 
     const handleSubmit: FormEventHandler<HTMLFormElement> = async (e) => {

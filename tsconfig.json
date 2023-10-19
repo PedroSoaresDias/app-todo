@@ -32,7 +32,7 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx"
-, "src/app/editarTarefa/[id]/page.tsx"  ],
+, "src/app/editarTarefa/[id]/page.jsx", "src/app/criarTarefa/page.js", "src/app/api/tarefas/[id]/route.js", "src/app/api/tarefas/route.js", "src/app/layout.js", "src/app/page.js", "src/Components/BtnExcluir.jsx", "src/Components/ToDoList.jsx", "src/Components/FormEditarTarefa.jsx", "src/lib/mongodb.js", "src/lib/data.js", "src/Models/tarefa.js"  ],
   "exclude": [
     "node_modules"
   ]
