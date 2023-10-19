@@ -1,7 +1,7 @@
 import FormEditarTarefa from "@/Components/FormEditarTarefa"
 import Link from "next/link"
 
-async function obterTarefaPorId(id) {
+async function obterTarefaPorId(id: string) {
     try {
         const request = await fetch(`http://localhost/api/tarefas/${id}`, {
             cache: "no-store"
