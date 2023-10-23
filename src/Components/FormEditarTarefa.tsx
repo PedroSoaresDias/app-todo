@@ -34,7 +34,7 @@ export default function FormEditarTarefa({id, titulo, descricao}) {
     return (
         <section className="flex flex-col items-center min-h-screen">
             <h1 className="text-center font-bold text-2xl pt-4">Editar a Tarefa</h1>
-            <form onSubmit={handleSubmit} className="flex flex-col justify-center w-11/12 md:w-9/12 sm:w-3/5 mt-4" action="post">
+            <form onSubmit={handleSubmit} className="flex flex-col justify-center w-11/12 md:w-9/12 mt-4" action="post">
                 <label className="text-lg mt-2" htmlFor="titulo">Nome da tarefa</label>
                 <input
                     className="border-2 border-gray-950 p-2 rounded-md mt-2"

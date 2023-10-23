@@ -40,9 +40,9 @@ export default function CriarTarefa() {
 
     return (
         <section className="flex flex-col items-center min-h-screen">
-            <Link className="flex bg-blue-600 hover:bg-blue-800 transition-all hover:scale-105 duration-200 p-3 text-white font-semibold text-center rounded-md flex-col justify-center w-11/12 md:w-9/12 sm:w-3/5 mt-6" href={"/"}>Retornar a página principal</Link>
+            <Link className="flex bg-blue-600 hover:bg-blue-800 transition-all hover:scale-105 duration-200 p-3 text-white font-semibold text-center rounded-md flex-col justify-center w-11/12 md:w-9/12 mt-6" href={"/"}>Retornar a página principal</Link>
             <h1 className="text-center font-bold text-2xl pt-4">Cria uma nova Tarefa</h1>
-            <form onSubmit={handleSubmit} className="flex flex-col justify-center w-11/12 md:w-9/12 sm:w-3/5 mt-4" action="post">
+            <form onSubmit={handleSubmit} className="flex flex-col justify-center w-11/12 md:w-9/12 mt-4" action="post">
                 <label className="text-lg mt-2" htmlFor="titulo">Nome da tarefa</label>
                 <input
                     className="border-2 border-gray-950 p-2 rounded-md mt-2"

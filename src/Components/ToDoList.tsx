@@ -29,7 +29,7 @@ export default async function ToDoList() {
         <>
             {tarefas.map((tarefa: Tarefa) => (
                 <div key={tarefa._id} className="flex justify-center mt-6">
-                    <div className="border-2 flex hover:scale-105 transition-all duration-200 justify-between shadow-md shadow-gray-400 w-11/12 md:w-9/12 sm:w-3/5 px-6 py-3 rounded-2xl border-gray-500">
+                    <div className="border-2 flex hover:scale-105 transition-all duration-200 justify-between shadow-md shadow-gray-400 w-11/12 md:w-9/12 px-6 py-3 rounded-2xl border-gray-500">
                         <div>
                             <h1 className="font-bold text-lg md:text-xl sm:text-2xl">{tarefa.titulo}</h1>
                             <div>{tarefa.descricao}</div>
