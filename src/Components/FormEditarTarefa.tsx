@@ -15,7 +15,7 @@ export default function FormEditarTarefa({id, titulo, descricao}) {
             const request = await fetch(`http://localhost:3000/api/tarefas/${id}`, {
                 method: "PUT",
                 headers: {
-                    "Content-type": "application/json"
+                    "Content-type": "application/json",
                 },
                 body: JSON.stringify({ novoTitulo, novaDescricao })
             });

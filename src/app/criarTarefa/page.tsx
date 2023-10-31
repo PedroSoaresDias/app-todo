@@ -22,7 +22,7 @@ export default function CriarTarefa() {
             const res = await fetch("http://localhost:3000/api/tarefas", {
                 method: "POST",
                 headers: {
-                    "Content-type": "application/json"
+                    "Content-type": "application/json",
                 },
                 body: JSON.stringify({ titulo, descricao }),
             });
